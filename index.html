@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DSA Practical Programs</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div class="brand">DSA Practical</div><div class="subtitle">C++ Programs • Offline Website</div></header>
+<div class="layout"><aside><h3>Programs</h3>
+<button class="nav-btn active" onclick="showAll(this)">All Programs</button><button class="nav-btn" onclick="jumpTo(1)">Program 1</button>
+<button class="nav-btn" onclick="jumpTo(2)">Program 2</button>
+<button class="nav-btn" onclick="jumpTo(3)">Program 3</button>
+<button class="nav-btn" onclick="jumpTo(4)">Program 4</button>
+<button class="nav-btn" onclick="jumpTo(5)">Program 5</button>
+<button class="nav-btn" onclick="jumpTo(6)">Program 6</button>
+<button class="nav-btn" onclick="jumpTo(7)">Program 7</button>
+</aside><main><section class="hero"><h1>Data Structures & Algorithms</h1>
+<p>All practical C++ programs from your shared content, available completely offline.</p>
+<input id="search" type="search" placeholder="Search programs..." oninput="filterPrograms()"></section>
+<div id="programs">
+<article class="program" data-title="program 1 array(insert, delete, search)" id="program-1">
+<div class="program-head"><div><span class="badge">Program 1</span><h2>Program 1 Array(insert, Delete, Search)</h2></div>
+<button class="copy-btn" onclick="copyCode(this)">Copy Code</button></div>
+<pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+
+{
+
+    int arr[5], n, choice, pos, value, i;
+
+    cout &lt;&lt; &quot;Enter number of
+elements: &quot;;
+
+    cin &gt;&gt; n;
+
+    cout &lt;&lt; &quot;Enter &quot; &lt;&lt; n
+&lt;&lt; &quot; elements:\n&quot;;
+
+    for (i = 0; i &lt; n; i++)
+
+    cin &gt;&gt; arr[i];
+
+    do
+
+    {
+
+        cout &lt;&lt; &quot;\n===== ARRAY
+OPERATIONS =====\n&quot;;
+
+        cout &lt;&lt; &quot;1. Insert\n&quot;;
+
+        cout &lt;&lt; &quot;2. Delete\n&quot;;
+
+        cout &lt;&lt; &quot;3. Search\n&quot;;
+
+        cout &lt;&lt; &quot;4. Display\n&quot;;
+
+        cout &lt;&lt; &quot;5. Exit\n&quot;;
+
+        cout &lt;&lt; &quot;Enter your choice:
+&quot;;
+
+        cin &gt;&gt; choice;
+
+        switch (choice)
+
+        {
+
+            case 1:
+
+                // Insert operation
+
+                cout &lt;&lt; &quot;Enter
+position (1 to &quot; &lt;&lt; n + 1 &lt;&lt; &quot;): &quot;;
+
+                cin &gt;&gt; pos;
+
+                cout &lt;&lt; &quot;Enter
+value: &quot;;
+
+                cin &gt;&gt; value;
+
+                if (pos &lt; 1 || pos &gt; n +
+1\)
+
+                {
+
+                    cout &lt;&lt; &quot;Invalid
+position!\n&quot;;
+
+                }
+
+               else
+
+                {
+
+                    for (i = n; i &gt;= pos;
+i--)
+
+                        arr[i] = arr[i - 1];
+
+                    arr[pos - 1] = value;
+
+                    n++;
+
+                    cout &lt;&lt; &quot;Element
+inserted successfully.\n&quot;;
+
+                }
+
+                break;
+
+            case 2:
+
+                // Delete operation
+
+                cout &lt;&lt; &quot;Enter
+position to delete (1 to &quot; &lt;&lt; n &lt;&lt; &quot;): &quot;;
+
+                cin &gt;&gt; pos;
+
+                if (pos &lt; 1 || pos &gt; n)
+
+                {
+
+                    cout &lt;&lt; &quot;Invalid
+position!\n&quot;;
+
+                }
+
+                else
+
+                {
+
+                    for (i = pos - 1; i &lt; n
+- 1; i++)
+
+                        arr[i] = arr[i + 1];
+
+                    n--;
+
+                    cout &lt;&lt; &quot;Element
+deleted successfully.\n&quot;;
+
+                }
+
+                break;
+
+            case 3:
+
+                // Search operation
+
+                cout &lt;&lt; &quot;Enter value
+to search: &quot;;
+
+                cin &gt;&gt; value;
+
+                for (i = 0; i &lt; n; i++)
+
+                {
+
+                    if (arr[i] == value)
+
+                    {
+
+                        cout &lt;&lt;
+&quot;Element found at position &quot;
+
+                             &lt;&lt; i + 1
+&lt;&lt; &quot;.\n&quot;;
+
+                        break;
+
+                    }
+
+                }
+
+                if (i == n)
+
+                    cout &lt;&lt; &quot;Element
+not found.\n&quot;;
+
+                break;
+
+            case 4:
+
+                // Display operation
+
+                cout &lt;&lt; &quot;Array
+elements are: &quot;;
+
+                for (i = 0; i &lt; n; i++)
+
+                    cout &lt;&lt; arr[i]
+&lt;&lt; &quot; &quot;;
+
+                cout &lt;&lt; endl;
+
+                break;
+
+            case 5:
+
+                cout &lt;&lt; &quot;Program
+terminated.\n&quot;;
+
+                break;
+
+            default:
+
+                cout &lt;&lt; &quot;Invalid
+choice!\n&quot;;
+
+        }
+
+    } while (choice != 5);
+
+    return 0;
+
+}</code></pre>
+</article>
+<article class="program" data-title="program 2 linear search and binary search" id="program-2">
+<div class="program-head"><div><span class="badge">Program 2</span><h2>Program 2 linear search and binary search</h2></div>
+<button class="copy-btn" onclick="copyCode(this)">Copy Code</button></div>
+<pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+
+{
+
+    int a[10], n, key;
+
+    int i;
+
+    cout &lt;&lt; &quot;Enter number of
+elements: &quot;;
+
+    cin &gt;&gt; n;
+
+    cout &lt;&lt; &quot;Enter elements in
+sorted order: &quot;;
+
+    for(i = 0; i &lt; n; i++)
+
+    {
+
+        cin &gt;&gt; a[i];
+
+    }
+
+    cout &lt;&lt; &quot;Enter element to
+search: &quot;;
+
+    cin &gt;&gt; key;
+
+    // Linear Search
+
+    cout &lt;&lt; &quot;\nLinear Search:&quot;;
+
+    for(i = 0; i &lt; n; i++)
+
+    {
+
+        if(a[i] == key)
+
+        {
+
+            cout &lt;&lt; &quot;\nElement found
+at position &quot; &lt;&lt; i + 1;
+
+            break;
+
+        }
+
+    }
+
+    if(i == n)
+
+    {
+
+        cout &lt;&lt; &quot;\nElement not
+found&quot;;
+
+    }
+
+    // Binary Search
+
+    int low = 0, high = n - 1, mid;
+
+    bool found = false;
+
+    while(low &lt;= high)
+
+    {
+
+        mid = (low + high) / 2;
+
+        if(a[mid] == key)
+
+        {
+
+            found = true;
+
+            break;
+
+        }
+
+        else if(key &lt; a[mid])
+
+        {
+
+            high = mid - 1;
+
+        }
+
+        else
+
+        {
+
+            low = mid + 1;
+
+        }
+
+    }
+
+    cout &lt;&lt; &quot;\n\nBinary
+Search:&quot;;
+
+    if(found)
+
+        cout &lt;&lt; &quot;\nElement found at
+position &quot; &lt;&lt; mid + 1;
+
+    else
+
+        cout &lt;&lt; &quot;\nElement not
+found&quot;;
+
+    return 0;
+
+}</code></pre>
+</article>
+<article class="program" data-title="program 3 singly linked list" id="program-3">
+<div class="program-head"><div><span class="badge">Program 3</span><h2>Program 3 singly linked list</h2></div>
+<button class="copy-btn" onclick="copyCode(this)">Copy Code</button></div>
+<pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+struct Node
+
+{
+
+    int data;
+
+    Node *next;
+
+};
+
+int main()
+
+{
+
+    Node *head = NULL;
+
+    Node *temp;
+
+    Node *newNode;
+
+    int choice, value;
+
+    do
+
+    {
+
+        cout &lt;&lt; &quot;\n\n--- Singly
+Linked List ---&quot;;
+
+        cout &lt;&lt; &quot;\n1. Insert&quot;;
+
+        cout &lt;&lt; &quot;\n2. Delete&quot;;
+
+        cout &lt;&lt; &quot;\n3. Search&quot;;
+
+        cout &lt;&lt; &quot;\n4. Display&quot;;
+
+        cout &lt;&lt; &quot;\n5. Exit&quot;;
+
+        cout &lt;&lt; &quot;\nEnter your
+choice: &quot;;
+
+        cin &gt;&gt; choice;
+
+        // INSERT
+
+        if(choice == 1)
+
+        {
+
+            newNode = new Node();
+
+            cout &lt;&lt; &quot;Enter value:
+&quot;;
+
+            cin &gt;&gt; value;
+
+            newNode-&gt;data = value;
+
+            newNode-&gt;next = NULL;
+
+            if(head == NULL)
+
+            {
+
+                head = newNode;
+
+            }
+
+            else
+
+            {
+
+                temp = head;
+
+                while(temp-&gt;next != NULL)
+
+                {
+
+                    temp = temp-&gt;next;
+
+                }
+
+                temp-&gt;next = newNode;
+
+            }
+
+            cout &lt;&lt; &quot;Node
+inserted&quot;;
+
+        }
+
+        // DELETE
+
+        else if(choice == 2)
+
+        {
+
+            if(head == NULL)
+
+            {
+
+                cout &lt;&lt; &quot;List is
+empty&quot;;
+
+            }
+
+            else
+
+            {
+
+                temp = head;
+
+                head = head-&gt;next;
+
+                delete temp;
+
+                cout &lt;&lt; &quot;Node
+deleted&quot;;
+
+            }
+
+        }
+
+        // SEARCH
+
+        else if(choice == 3)
+
+        {
+
+            cout &lt;&lt; &quot;Enter value to
+search: &quot;;
+
+            cin &gt;&gt; value;
+
+            temp = head;
+
+            while(temp != NULL)
+
+            {
+
+                if(temp-&gt;data == value)
+
+                {
+
+                    cout &lt;&lt; &quot;Element
+found&quot;;
+
+                    break;
+
+                }
+
+                temp = temp-&gt;next;
+
+            }
+
+            if(temp == NULL)
+
+            {
+
+                cout &lt;&lt; &quot;Element not
+found&quot;;
+
+            }
+
+        }
+
+        // DISPLAY
+
+        else if(choice == 4)
+
+        {
+
+            temp = head;
+
+            cout &lt;&lt; &quot;Linked List:
+&quot;;
+
+            while(temp != NULL)
+
+            {
+
+                cout &lt;&lt; temp-&gt;data
+&lt;&lt; &quot; -&gt; &quot;;
+
+                temp = temp-&gt;next;
+
+            }
+
+            cout &lt;&lt; &quot;NULL&quot;;
+
+        }
+
+        else if(choice == 5)
+
+        {
+
+            cout &lt;&lt; &quot;Program
+ended&quot;;
+
+        }
+
+        else
+
+        {
+
+            cout &lt;&lt; &quot;Invalid
+choice&quot;;
+
+        }
+
+    } while(choice != 5);
+
+    return 0;
+
+}</code></pre>
+</article>
+<article class="program" data-title="program 4 - doubly linked list" id="program-4">
+<div class="program-head"><div><span class="badge">Program 4</span><h2>Program 4 - Doubly linked list</h2></div>
+<button class="copy-btn" onclick="copyCode(this)">Copy Code</button></div>
+<pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+struct Node
+
+{
+
+    int data;
+
+    Node *prev;
+
+    Node *next;
+
+};
+
+int main()
+
+{
+
+    Node *head = NULL;
+
+    Node *temp;
+
+    Node *newNode;
+
+    int choice, value;
+
+    do
+
+    {
+
+        cout &lt;&lt; &quot;\n\n--- DOUBLY
+LINKED LIST ---&quot;;
+
+        cout &lt;&lt; &quot;\n1. Insert&quot;;
+
+        cout &lt;&lt; &quot;\n2. Delete&quot;;
+
+        cout &lt;&lt; &quot;\n3. Search&quot;;
+
+        cout &lt;&lt; &quot;\n4. Display&quot;;
+
+        cout &lt;&lt; &quot;\n5. Exit&quot;;
+
+        cout &lt;&lt; &quot;\nEnter your
+choice: &quot;;
+
+        cin &gt;&gt; choice;
+
+        // INSERT
+
+        if(choice == 1)
+
+        {
+
+            newNode = new Node();
+
+            cout &lt;&lt; &quot;Enter value:
+&quot;;
+
+            cin &gt;&gt; value;
+
+            newNode-&gt;data = value;
+
+            newNode-&gt;prev = NULL;
+
+            newNode-&gt;next = NULL;
+
+            if(head == NULL)
+
+            {
+
+                head = newNode;
+
+            }
+
+            else
+
+            {
+
+                temp = head
+
+                while(temp-&gt;next != NULL)
+
+                {
+
+                    temp = temp-&gt;next;
+
+                }
+
+                temp-&gt;next = newNode;
+
+                newNode-&gt;prev = temp;
+
+            }
+
+            cout &lt;&lt; &quot;Node
+inserted&quot;;
+
+        }
+
+        // DELETE
+
+        else if(choice == 2)
+
+        {
+
+            if(head == NULL)
+
+            {
+
+                cout &lt;&lt; &quot;List is
+empty&quot;;
+
+            }
+
+            else
+
+            {
+
+                temp = head;
+
+                head = head-&gt;next;
+
+                if(head != NULL)
+
+                    head-&gt;prev = NULL;
+
+                delete temp;
+
+                cout &lt;&lt; &quot;Node
+deleted&quot;;
+
+            }
+
+        }
+
+        // SEARCH
+
+        else if(choice == 3)
+
+        {
+
+            cout &lt;&lt; &quot;Enter value to
+search: &quot;;
+
+            cin &gt;&gt; value;
+
+            temp = head;
+
+
+
+            while(temp != NULL)
+
+            {
+
+                if(temp-&gt;data == value)
+
+                {
+
+                    cout &lt;&lt; &quot;Element
+found&quot;;
+
+                    break;
+
+                }
+
+                temp = temp-&gt;next;
+
+            }
+
+            if(temp == NULL)
+
+            {
+
+                cout &lt;&lt; &quot;Element not
+found&quot;;
+
+            }
+
+        }
+
+        // DISPLAY
+
+        else if(choice == 4)
+
+        {
+
+            temp = head;
+
+            cout &lt;&lt; &quot;Doubly Linked
+List: &quot;;
+
+            while(temp != NULL)
+
+            {
+
+                cout &lt;&lt; temp-&gt;data
+&lt;&lt; &quot; &lt;-&gt; &quot;;
+
+                temp = temp-&gt;next;
+
+            }
+
+            cout &lt;&lt; &quot;NULL&quot;;
+
+        }
+
+        else if(choice == 5)
+
+        {
+
+            cout &lt;&lt; &quot;Program
+ended&quot;;
+
+        }
+
+        else
+
+        {
+
+            cout &lt;&lt; &quot;Invalid
+choice&quot;;
+
+        }
+
+    } while(choice != 5);
+
+    return 0;
+
+}
+
+
+
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+
+{
+
+    int stack[5];
+
+    int top = -1;
+
+    int choice, value;
+
+    do
+
+    {
+
+        cout &lt;&lt; &quot;\n\n--- STACK USING
+ARRAY ---&quot;;
+
+        cout &lt;&lt; &quot;\n1. PUSH&quot;;
+
+        cout &lt;&lt; &quot;\n2. POP&quot;;
+
+        cout &lt;&lt; &quot;\n3. DISPLAY&quot;;
+
+        cout &lt;&lt; &quot;\n4. EXIT&quot;;
+
+        cout &lt;&lt; &quot;\nEnter your
+choice: &quot;;
+
+        cin &gt;&gt; choice;
+
+        // PUSH
+
+        if(choice == 1)
+
+        {
+
+            if(top == 4)
+
+            {
+
+                cout &lt;&lt; &quot;Stack
+Overflow&quot;;
+
+            }
+
+            else
+
+            {
+
+                cout &lt;&lt; &quot;Enter
+value: &quot;;
+
+                cin &gt;&gt; value;
+
+                top++;
+
+                stack[top] = value;
+
+                cout &lt;&lt; &quot;Value
+inserted&quot;;
+
+            }
+
+        }
+
+        // POP
+
+        else if(choice == 2)
+
+        {
+
+            if(top == -1)
+
+            {
+
+                cout &lt;&lt; &quot;Stack
+Underflow&quot;;
+
+            }
+
+            else
+
+            {
+
+                cout &lt;&lt; &quot;Deleted
+value: &quot; &lt;&lt; stack[top];
+
+                top--;
+
+            }
+
+        }
+
+        // DISPLAY
+
+        else if(choice == 3)
+
+        {
+
+            if(top == -1)
+
+            {
+
+                cout &lt;&lt; &quot;Stack is
+empty&quot;;
+
+            }
+
+            else
+
+            {
+
+                cout &lt;&lt; &quot;Stack
+elements:\n&quot;;
+
+                for(int i = top; i &gt;= 0;
+i--)
+
+                {
+
+                    cout &lt;&lt; stack[i]
+&lt;&lt; endl;
+
+                }
+
+            }
+
+        }
+
+        else if(choice == 4)
+
+        {
+
+            cout &lt;&lt; &quot;Program
+ended&quot;;
+
+        }
+
+        else
+
+        {
+
+            cout &lt;&lt; &quot;Invalid
+choice&quot;;
+
+        }
+
+    } while(choice != 4);
+
+    return 0;
+
+}</code></pre>
+</article>
+<article class="program" data-title="program 5 – stack using array" id="program-5">
+<div class="program-head"><div><span class="badge">Program 5</span><h2>Program 5 – Stack using Array</h2></div>
+<button class="copy-btn" onclick="copyCode(this)">Copy Code</button></div>
+<pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+
+{
+
+    int stack[5];
+
+    int top = -1;
+
+    int choice, value;
+
+    do
+
+    {
+
+        cout &lt;&lt; &quot;\n\n--- STACK USING
+ARRAY ---&quot;;
+
+        cout &lt;&lt; &quot;\n1. PUSH&quot;;
+
+        cout &lt;&lt; &quot;\n2. POP&quot;;
+
+        cout &lt;&lt; &quot;\n3. DISPLAY&quot;;
+
+        cout &lt;&lt; &quot;\n4. EXIT&quot;;
+
+        cout &lt;&lt; &quot;\nEnter your
+choice: &quot;;
+
+        cin &gt;&gt; choice;
+
+        // PUSH
+
+        if(choice == 1)
+
+        {
+
+            if(top == 4)
+
+            {
+
+                cout &lt;&lt; &quot;Stack
+Overflow&quot;;
+
+            }
+
+            else
+
+            {
+
+                cout &lt;&lt; &quot;Enter
+value: &quot;;
+
+                cin &gt;&gt; value;
+
+                top++;
+
+                stack[top] = value;
+
+                cout &lt;&lt; &quot;Value
+inserted&quot;;
+
+            }
+
+        }
+
+        // POP
+
+        else if(choice == 2)
+
+        {
+
+            if(top == -1)
+
+            {
+
+                cout &lt;&lt; &quot;Stack
+Underflow&quot;;
+
+            }
+
+            else
+
+            {
+
+                cout &lt;&lt; &quot;Deleted
+value: &quot; &lt;&lt; stack[top];
+
+                top--;
+
+            }
+
+        }
+
+        // DISPLAY
+
+        else if(choice == 3)
+
+        {
+
+            if(top == -1)
+
+            {
+
+                cout &lt;&lt; &quot;Stack is
+empty&quot;;
+
+            }
+
+            else
+
+            {
+
+                cout &lt;&lt; &quot;Stack
+elements:\n&quot;;
+
+                for(int i = top; i &gt;= 0;
+i--)
+
+                {
+
+                    cout &lt;&lt; stack[i]
+&lt;&lt; endl;
+
+                }
+
+            }
+
+        }
+
+        else if(choice == 4)
+
+        {
+
+            cout &lt;&lt; &quot;Program
+ended&quot;;
+
+        }
+
+        else
+
+        {
+
+            cout &lt;&lt; &quot;Invalid
+choice&quot;;
+
+        }
+
+    } while(choice != 4);
+
+    return 0;
+
+}</code></pre>
+</article>
+<article class="program" data-title="program 6 – stack using linked list" id="program-6">
+<div class="program-head"><div><span class="badge">Program 6</span><h2>Program 6 – Stack Using Linked List</h2></div>
+<button class="copy-btn" onclick="copyCode(this)">Copy Code</button></div>
+<pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+struct Node
+
+{
+
+    int data;
+
+    Node *next;
+
+};
+
+int main()
+
+{
+
+    Node *top = NULL;
+
+    Node *newNode;
+
+    Node *temp;
+
+    int choice, value;
+
+    do
+
+    {
+
+        cout &lt;&lt; &quot;\n\n--- STACK USING
+LINKED LIST ---&quot;;
+
+        cout &lt;&lt; &quot;\n1. PUSH&quot;;
+
+        cout &lt;&lt; &quot;\n2. POP&quot;;
+
+        cout &lt;&lt; &quot;\n3. DISPLAY&quot;;
+
+        cout &lt;&lt; &quot;\n4. EXIT&quot;;
+
+        cout &lt;&lt; &quot;\nEnter your
+choice: &quot;;
+
+        cin &gt;&gt; choice;
+
+        // PUSH
+
+        if(choice == 1)
+
+        {
+
+            cout &lt;&lt; &quot;Enter value:
+&quot;;
+
+            cin &gt;&gt; value;
+
+            newNode = new Node();
+
+            newNode-&gt;data = value;
+
+            newNode-&gt;next = top;
+
+            top = newNode;
+
+            cout &lt;&lt; &quot;Value
+inserted&quot;;
+
+        }
+
+        // POP
+
+        else if(choice == 2)
+
+        {
+
+            if(top == NULL)
+
+            {
+
+                cout &lt;&lt; &quot;Stack
+Underflow&quot;;
+
+            }
+
+            else
+
+            {
+
+                temp = top;
+
+                cout &lt;&lt; &quot;Deleted
+value: &quot; &lt;&lt; top-&gt;data;
+
+                top = top-&gt;next;
+
+                delete temp;
+
+            }
+
+        }
+
+        // DISPLAY
+
+        else if(choice == 3)
+
+        {
+
+            if(top == NULL)
+
+            {
+
+                cout &lt;&lt; &quot;Stack is
+empty&quot;;
+
+            }
+
+            else
+
+            {
+
+                temp = top;
+
+                cout &lt;&lt; &quot;Stack
+elements:\n&quot;;
+
+                while(temp != NULL)
+
+                {
+
+                    cout &lt;&lt; temp-&gt;data
+&lt;&lt; endl;
+
+                    temp = temp-&gt;next;
+
+                }
+
+            }
+
+        }
+
+        else if(choice == 4)
+
+        {
+
+            cout &lt;&lt; &quot;Program
+ended&quot;;
+
+        }
+
+        else
+
+        {
+
+            cout &lt;&lt; &quot;Invalid
+choice&quot;;
+
+        }
+
+    } while(choice != 4);
+
+    return 0;
+
+}</code></pre>
+</article>
+<article class="program" data-title="program 7 – a) infix to postfix expression" id="program-7">
+<div class="program-head"><div><span class="badge">Program 7</span><h2>Program 7 – A) Infix to Postfix Expression</h2></div>
+<button class="copy-btn" onclick="copyCode(this)">Copy Code</button></div>
+<pre><code>#include &lt;iostream&gt;
+
+#include &lt;stack&gt;
+
+using namespace std;
+
+// Function to check operator
+priority
+
+int priority(char ch) //This
+function finds the priority of an operator
+
+{
+
+    if(ch == &#x27;+&#x27; || ch == &#x27;-&#x27;) //
+
+        return 1;
+
+    if(ch == &#x27;*&#x27; || ch == &#x27;/&#x27;)
+
+        return 2;
+
+    return 0;
+
+}
+
+int main()
+
+{
+
+    string infix, postfix = &quot;&quot;;
+ //Creates two string variables
+
+    stack&lt;char&gt; s;                                                                           //Creates
+a stack named s
+
+    cout &lt;&lt; &quot;Enter infix expression:
+&quot;;
+
+    cin &gt;&gt; infix;
+
+    for(int i = 0; i &lt; infix.length(); i++)                                   //This loop
+reads every character of the infix expression
+
+    {
+
+        char ch = infix[i];
+
+        // If operand, add directly to postfix
+
+        if((ch &gt;= &#x27;A&#x27; &amp;&amp; ch &lt;=
+&#x27;Z&#x27;) ||                                                //This checks whether ch is an operand.
+
+           (ch &gt;= &#x27;a&#x27; &amp;&amp; ch &lt;=
+&#x27;z&#x27;) ||
+
+           (ch &gt;= &#x27;0&#x27; &amp;&amp; ch &lt;=
+&#x27;9&#x27;))
+
+        {
+
+            postfix = postfix + ch;
+
+        }
+
+
+
+
+
+
+
+                                                                               // If opening bracket
+
+        else if(ch == &#x27;(&#x27;)                                              //Checks
+whether the character is an opening bracket.
+
+        {
+
+            s.push(ch);
+ //If it is (, push it into the
+stack
+
+        }
+
+                                                                             // If closing bracket
+
+        else if(ch == &#x27;)&#x27;)                                              //Checks
+whether the character is a closing bracket.
+
+        {
+
+            while(!s.empty() &amp;&amp; s.top()
+!= &#x27;(&#x27;)                           //Continue removing
+elements from the stack until:(
+
+            {
+
+                postfix = postfix +
+s.top();                                     //Take the
+top operator and add it to postfix.
+
+                s.pop();                                                                        //Remove
+the top element from the stack.
+
+            }
+
+            if(!s.empty())                                                 //After all operators are removed, remove the
+opening bracket (.
+
+                s.pop();
+
+        }
+
+                                                                         //
+If operator
+
+        else
+
+        {
+
+            while(!s.empty() &amp;&amp;
+
+                  priority(s.top()) &gt;=
+priority(ch))
+
+            {
+
+                postfix = postfix + s.top();               //If the stack operator has higher or equal
+priority, add it to postfix.
+
+                s.pop();
+  //Remove that operator from the
+stack.
+
+            }
+
+            s.push(ch);
+  //After removing higher/equal
+priority operators,
+
+                                                                                                           // push the current operator into the
+stack.
+
+        }
+
+    }
+
+
+
+
+
+    // Remove remaining operators
+
+    while(!s.empty())   //checks whether operators are still present
+in the stack
+
+    {
+
+        postfix = postfix + s.top(); //Adds the
+top operator to postfix.
+
+        s.pop();    //Removes that operator.
+
+    }
+
+    cout &lt;&lt; &quot;Postfix expression =
+&quot; &lt;&lt; postfix;
+
+     //Displays the final postfix expression.
+
+    return 0;
+
+}
+
+**Progtam-7 B)
+Postfix Expression Evaluation**
+
+#include &lt;iostream&gt;
+
+#include &lt;stack&gt;
+
+using namespace std;
+
+int main()
+
+{
+
+    stack&lt;int&gt; s;
+
+    string exp;
+
+    int a, b;
+
+    cout &lt;&lt; &quot;Enter postfix
+expression: &quot;;
+
+    cin &gt;&gt; exp;
+
+    for(int i = 0; i &lt; exp.length(); i++)
+
+    {
+
+        // If it is an operand
+
+        if(exp[i] &gt;= &#x27;0&#x27; &amp;&amp; exp[i]
+&lt;= &#x27;9&#x27;)
+
+        {
+
+            s.push(exp[i] - &#x27;0&#x27;);
+
+        }
+
+
+
+
+
+        // If it is an operator
+
+        else
+
+        {
+
+            a = s.top();
+
+            s.pop();
+
+            b = s.top();
+
+            s.pop();
+
+            if(exp[i] == &#x27;+&#x27;)
+
+                s.push(b + a);
+
+            else if(exp[i] == &#x27;-&#x27;)
+
+                s.push(b - a);
+
+            else if(exp[i] == &#x27;*&#x27;)
+
+                s.push(b * a);
+
+            else if(exp[i] == &#x27;/&#x27;)
+
+                s.push(b / a);
+
+        }
+
+    }
+
+    cout &lt;&lt; &quot;Result = &quot;
+&lt;&lt; s.top();
+
+    return 0;
+
+}</code></pre>
+</article></div><p id="noResults" class="no-results" hidden>No program found.</p>
+</main></div><script src="script.js"></script></body></html>

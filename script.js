@@ -1,0 +1,4 @@
+function copyCode(button){const code=button.closest(".program").querySelector("code").innerText;navigator.clipboard.writeText(code).then(()=>{const old=button.innerText;button.innerText="Copied!";setTimeout(()=>button.innerText=old,1200);});}
+function filterPrograms(){const q=document.getElementById("search").value.toLowerCase().trim();let count=0;document.querySelectorAll(".program").forEach(p=>{const show=p.innerText.toLowerCase().includes(q);p.style.display=show?"block":"none";if(show)count++;});document.getElementById("noResults").hidden=count!==0;}
+function jumpTo(n){const p=document.getElementById("program-"+n);if(p)p.scrollIntoView({behavior:"smooth"});}
+function showAll(btn){document.querySelectorAll(".program").forEach(p=>p.style.display="block");document.getElementById("search").value="";document.getElementById("noResults").hidden=true;document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"));btn.classList.add("active");}
